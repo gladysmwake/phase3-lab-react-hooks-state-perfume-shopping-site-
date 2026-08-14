@@ -1,0 +1,182 @@
+.footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-gold);
+  margin-top: auto;
+}
+
+.gradientDivider {
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--accent), var(--gold-light), var(--accent), transparent);
+}
+
+.inner {
+  padding: clamp(3rem, 6vw, 5rem) 0 0;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text);
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 26ch;
+}
+
+/* Link columns */
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.linkGroupLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.linkGroup a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.linkGroup a:hover {
+  color: var(--accent);
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.newsletterSub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 28ch;
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.emailInput {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-gold);
+  border-radius: 9999px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  min-width: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+.emailInput::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.subscribeBtn {
+  padding: 0.7rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.subscribeBtn:hover {
+  background: var(--gold-deep);
+  transform: translateY(-1px);
+}
+
+/* Bottom bar */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.legal a {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.legal a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+  .newsletter {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+}
+

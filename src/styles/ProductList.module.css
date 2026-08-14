@@ -1,0 +1,35 @@
+.wrap {
+  flex: 1;
+}
+
+.header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.title {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 1px dashed var(--border-gold);
+  border-radius: 16px;
+  color: var(--text-muted);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  background: var(--bg-elevated);
+}
+

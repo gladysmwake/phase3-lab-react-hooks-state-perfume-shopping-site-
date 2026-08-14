@@ -1,0 +1,160 @@
+/* Valance Haute Parfumerie — Design System Tokens */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+  /* Light Luxury Palette */
+  --charcoal: #121110;
+  --charcoal-soft: #23201d;
+  --charcoal-muted: #3a3632;
+  --warm-grey: #69635c;
+  --cream: #fbf9f5;
+  --cream-deep: #f3eee5;
+  --ecru: #e8ded0;
+  --gold: #c9a66b;
+  --gold-light: #e5cd9c;
+  --gold-deep: #b08d51;
+  --gold-glow: rgba(201, 166, 107, 0.22);
+  --danger: #9e4646;
+
+  /* Theme Tokens (Light Mode Default) */
+  --bg: var(--cream);
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-glass: rgba(251, 249, 245, 0.85);
+  --text: var(--charcoal);
+  --text-muted: var(--warm-grey);
+  --border: rgba(18, 17, 16, 0.1);
+  --border-gold: rgba(201, 166, 107, 0.3);
+  --accent: var(--gold);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 12px 32px rgba(18, 17, 16, 0.08);
+  --shadow-lg: 0 24px 48px rgba(18, 17, 16, 0.12);
+  --shadow-gold: 0 8px 24px rgba(201, 166, 107, 0.2);
+
+  color-scheme: light;
+}
+
+.app-root.dark {
+  /* Dark Obsidian & Warm Gold Theme */
+  --bg: #0f0e0d;
+  --bg-surface: #191715;
+  --bg-elevated: #24211e;
+  --bg-glass: rgba(15, 14, 13, 0.88);
+  --text: #f5f1eb;
+  --text-muted: #ad9c92;
+  --border: rgba(245, 241, 235, 0.12);
+  --border-gold: rgba(201, 166, 107, 0.35);
+  --accent: #d6b478;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.55);
+  --shadow-gold: 0 8px 24px rgba(201, 166, 107, 0.15);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+.app-root {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  width: 100%;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  font-family: var(--font-sans);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
