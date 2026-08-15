@@ -66,13 +66,8 @@
   transition: width 0.3s ease;
 }
 
-.nav a:hover {
-  color: var(--accent);
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
+.nav a:hover { color: var(--accent); }
+.nav a:hover::after { width: 100%; }
 
 .actions {
   display: flex;
@@ -107,18 +102,11 @@
 .cartActive {
   background: var(--gold-glow);
   border-color: var(--accent);
-  color: var(--text);
 }
 
-.cartIcon {
-  font-size: 0.9rem;
-}
+.cartIcon { font-size: 0.9rem; }
 
 @media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-  .submark {
-    display: none;
-  }
+  .nav { display: none; }
+  .submark { display: none; }
 }

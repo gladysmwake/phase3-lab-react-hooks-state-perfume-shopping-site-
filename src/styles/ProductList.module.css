@@ -6,13 +6,26 @@
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .title {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   font-weight: 500;
   letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 54ch;
+  line-height: 1.6;
 }
 
 .grid {
@@ -32,4 +45,3 @@
   font-size: 1.05rem;
   background: var(--bg-elevated);
 }
-

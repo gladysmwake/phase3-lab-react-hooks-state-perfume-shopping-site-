@@ -2,7 +2,7 @@
   background: var(--bg-elevated);
   border: 1px solid var(--border-gold);
   border-radius: 20px;
-  padding: 1.75rem 1.75rem 2rem;
+  padding: 1.75rem;
   box-shadow: var(--shadow-md);
   position: sticky;
   top: 6rem;
@@ -18,7 +18,7 @@
 }
 
 .title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -35,14 +35,61 @@
   border: 1px solid var(--border-gold);
 }
 
+.emptyState {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.emptyIcon {
+  font-size: 1.8rem;
+  opacity: 0.6;
+}
+
 .empty {
   font-size: 0.88rem;
   color: var(--text-muted);
-  text-align: center;
   font-style: italic;
   font-family: var(--font-serif);
-  padding: 1.5rem 0;
   line-height: 1.6;
+  margin: 0;
+}
+
+.shippingMeter {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.meterText {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.freeAchieved {
+  color: #5ba368;
+  font-weight: 600;
+}
+
+.meterTrack {
+  height: 4px;
+  background: var(--border);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--gold-deep), var(--accent));
+  transition: width 0.4s ease;
+  border-radius: 9999px;
 }
 
 .list {
@@ -51,7 +98,8 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 .item {
@@ -59,37 +107,84 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.875rem;
-  padding: 0.7rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid var(--border);
   animation: slideIn 0.3s ease both;
+  gap: 0.5rem;
 }
+
+.item:last-child { border-bottom: none; }
 
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-8px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-.item:last-child {
-  border-bottom: none;
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.itemName {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.itemMeta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .itemPrice {
   color: var(--accent);
   font-family: var(--font-serif);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
-.subtotalRow {
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.removeBtn:hover {
+  color: var(--danger);
+  background: rgba(158, 70, 70, 0.1);
+}
+
+.summary {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-gold);
-  font-size: 0.82rem;
+}
+
+.subtotalRow, .shippingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -101,6 +196,13 @@
   color: var(--text);
   letter-spacing: 0;
   text-transform: none;
+}
+
+.shippingValue {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: none;
+  font-weight: 500;
 }
 
 .checkoutBtn {
@@ -127,4 +229,3 @@
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(201, 166, 107, 0.4);
 }
-

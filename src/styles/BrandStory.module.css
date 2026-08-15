@@ -1,0 +1,136 @@
+.story {
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  background: var(--bg);
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.leadContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.leadText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.manifestoQuote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent);
+  line-height: 1.7;
+}
+
+.statVisual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.statCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.statBig {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.statUnit {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.statSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pillarNum {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pillarTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.pillarDesc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 800px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+  }
+  .statVisual {
+    grid-template-columns: 1fr;
+  }
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

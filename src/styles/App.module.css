@@ -57,9 +57,7 @@
   box-shadow: 0 0 0 3px var(--gold-glow);
 }
 
-.select:hover {
-  border-color: var(--accent);
-}
+.select:hover { border-color: var(--accent); }
 
 .sidebar {
   position: sticky;
@@ -67,12 +65,6 @@
 }
 
 @media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    position: relative;
-    top: auto;
-    order: -1;
-  }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: relative; top: auto; order: -1; }
 }

@@ -5,24 +5,21 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
   box-shadow: var(--shadow-sm);
   position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-gold);
-  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  border-color: var(--item-accent, var(--border-gold));
+  box-shadow: var(--shadow-lg), 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-.outOfStock {
-  opacity: 0.72;
-}
+.outOfStock { opacity: 0.75; }
 
-/* Image area */
 .imageWrap {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -38,28 +35,16 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card:hover .image {
-  transform: scale(1.07);
-}
+.card:hover .image { transform: scale(1.06); }
 
-.imageOverlay {
+.spotlight {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 40%,
-    rgba(18, 17, 16, 0.35) 100%
-  );
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
 }
 
-.card:hover .imageOverlay {
-  opacity: 1;
-}
-
-/* Category badge on image */
 .categoryBadge {
   position: absolute;
   top: 1rem;
@@ -73,7 +58,21 @@
   border: 1px solid var(--border-gold);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
-  color: var(--accent);
+  color: var(--item-accent, var(--accent));
+}
+
+.tagBadge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  background: rgba(18, 17, 16, 0.65);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
 }
 
 .soldOutBanner {
@@ -84,14 +83,42 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: rgba(18, 17, 16, 0.75);
+  background: rgba(18, 17, 16, 0.85);
   backdrop-filter: blur(6px);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
   color: #fff;
 }
 
-/* Card body */
+.inspectBtn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--bg-glass);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-gold);
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.25s ease;
+}
+
+.card:hover .inspectBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.inspectBtn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
 .body {
   padding: 1.5rem;
   display: flex;
@@ -107,6 +134,15 @@
   gap: 0.5rem;
 }
 
+.catalogNumber {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--item-accent, var(--accent));
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
 .name {
   font-size: 1.35rem;
   font-weight: 500;
@@ -117,9 +153,9 @@
 
 .price {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--item-accent, var(--accent));
   white-space: nowrap;
   padding-top: 0.1rem;
 }
@@ -131,7 +167,6 @@
   flex: 1;
 }
 
-/* Footer */
 .footer {
   display: flex;
   flex-direction: column;
@@ -140,7 +175,6 @@
   padding-top: 0.25rem;
 }
 
-/* Scent intensity decorative bar */
 .scentBar {
   height: 2px;
   background: var(--border);
@@ -152,16 +186,13 @@
   display: block;
   height: 100%;
   width: 68%;
-  background: linear-gradient(to right, var(--gold-deep), var(--gold-light));
+  background: linear-gradient(to right, var(--item-accent, var(--gold-deep)), var(--gold-light));
   border-radius: 9999px;
   transition: width 0.6s ease;
 }
 
-.card:hover .scentBarFill {
-  width: 90%;
-}
+.card:hover .scentBarFill { width: 92%; }
 
-/* Add to cart button */
 .addBtn {
   width: 100%;
   padding: 0.8rem 1.25rem;
@@ -181,16 +212,13 @@
 }
 
 .addBtn:hover:not(:disabled) {
-  background: var(--accent);
+  background: var(--item-accent, var(--accent));
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-gold);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.addBtn:disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
-}
+.addBtn:disabled { cursor: not-allowed; opacity: 0.45; }
 
 .notifyBtn {
   background: transparent;
